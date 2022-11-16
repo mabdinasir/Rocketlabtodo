@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Card, Typography } from '@mui/material';
+import { useCallback, useState } from 'react';
+import { Box, Card, Typography } from '@mui/material';
 import AddTodo from './AddTodo';
 import TodoListItem from './TodoListItem';
 import Todos, {Todo}  from './todos';
@@ -55,6 +55,11 @@ const TodoList = () => {
   return (
     <>
       <Typography variant="h1" component="h2" gutterBottom> Todo List </Typography>
+      <Box sx={{ display: 'flex', mb: 2,}}>
+        <Typography variant="h3" component="h2" gutterBottom>
+          {` ${todos.filter((todo: Todo) => todo.completed).length} / ${todos.length} completed`}
+        </Typography>
+      </Box>
       <AddTodo addTodo={handleAddTodo}/>
       {sortedTodos.length > 0 ? (
         <Card sx={{minHeight: 500}}>
