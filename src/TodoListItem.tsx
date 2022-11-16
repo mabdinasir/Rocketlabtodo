@@ -44,7 +44,13 @@ const TodoListItem: React.FC<TodoListItemProps> = ({
             inputProps={{ 'aria-labelledby': todo.title }}
           />
         </ListItemIcon>
-        <ListItemText id={todo.id.toString()} primary={todo.title} />
+        <ListItemText
+          sx={{
+              textDecoration: todo.completed ? 'line-through' : 'none',
+          }}
+          id={todo.id.toString()}
+          primary={todo.title}
+        />
         <Tooltip title="star to prioritize"  arrow>
           <IconButton onClick={() => handlePriorityTodo(todo.id)} sx={{mr: 5}} >
             <StarBorderIcon htmlColor={todo.priority ? "red" : undefined} />
