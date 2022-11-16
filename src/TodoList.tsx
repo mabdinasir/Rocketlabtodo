@@ -21,7 +21,6 @@ const TodoList = () => {
       completed: false,
       priority: false,
     };
-    //new todo goes to the back of the list
     setTodos([...todos, newTodo]);
   };
 
@@ -57,7 +56,6 @@ const TodoList = () => {
       {sortedTodos.length > 0 ? (
         <Card sx={{minHeight: 500}}>
           {todos.map((todo: Todo) => {
-            console.log(todo);
             return (
               <TodoListItem
                 key={todo.id}
