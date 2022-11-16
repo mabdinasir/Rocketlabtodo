@@ -15,12 +15,15 @@ const TodoList = () => {
   });
 
   const handleAddTodo = (title: string) => {
+    if (title.trim().length === 0) {
+      return;
+    }
     const newTodo: Todo = {
       id: todos.length + 1,
       title: title,
       completed: false,
       priority: false,
-    };
+    }
     setTodos([...todos, newTodo]);
   };
 
